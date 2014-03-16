@@ -19,8 +19,8 @@
 	$email->setText('Example Content');
 	$email->addAttachment('apache.gif','image/gif');
 	
-	//debug($email->generate());
-	//die();
+	// for debugging
+	// die($email->generate());
 	
 	$email->send();
 	if($email->failed) foreach($email->failed as $v) print $v.'<br />';
