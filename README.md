@@ -28,4 +28,7 @@ $email->addAttachment('apache.gif','image/gif');
 
 $email->send();
 if($email->failed) foreach($email->failed as $v) print 'failed: '. $v.'<br />';
+
+$email->reset();
+
 ```
