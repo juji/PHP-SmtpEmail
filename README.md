@@ -22,8 +22,8 @@ $email->addTo('man@domain.com');
 $email->addCc('Some Guy <guy@yahoo.com>');
 $email->addBcc('Some Dude <dude@mail.com>');
 $email->setSubject('Example Subject');
-$email->setHtml('Example <b>Content</b>');
-$email->setText('Example Content');
+$email->setHtml('Example <b>Content</b>');  // utf-8
+$email->setText('Example Content');  // utf-8
 $email->addAttachment('apache.gif','image/gif');
 
 // debug..
