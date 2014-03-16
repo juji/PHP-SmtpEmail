@@ -6,6 +6,9 @@ SMTP Email delivery in PHP
 
 
 ```php
+
+require_once 'SmtpEmail.php';
+
 $email = new SmtpEmail(array(
     'host'=>'smtp.mailgun.org',
 	'port'=>'587',
