@@ -31,6 +31,6 @@ if($email->failed) foreach($email->failed as $v) print 'failed: '. $v.'<br />';
 
 $email->debug();    // print debug message
 
-$email->reset();
+$email->reset();    // reset all email fields
 
 ```
