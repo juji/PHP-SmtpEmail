@@ -10,10 +10,10 @@ SMTP Email delivery in PHP
 require_once 'SmtpEmail.php';
 
 $email = new SmtpEmail(array(
-    'host'=>'smtp.mailgun.org',
+    'host'=>'smtp.gmail.com',
 	'port'=>'587',
 	'auth'=>'tls',  // 'tls' | 'ssl' | false
-	'user'=>'someone@domain.com',
+	'user'=>'someone@gmail.com',
 	'password'=>'32874956',
 ));
 
