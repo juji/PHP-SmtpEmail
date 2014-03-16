@@ -10,24 +10,13 @@
 	
 	require_once 'SmtpEmail.php';
 	
-	$mailgun = array(
-		'host'=>'smtp.mailgun.org',
-		'port'=>'587',
-		'auth'=>'tls',
-		'user'=>'someone@domain.com',
-		'password'=>'32874956',
-	);
-	
-	$gmail = array(
+	$email = new SmtpEmail(array(
 		'host'=>'smtp.gmail.com',
 		'port'=>'587',
 		'auth'=>'tls',
-		'user'=>'someone@gmail.com',
-		'password'=>'asdfiyut',
-	);
-	
-	$email = new SmtpEmail($mailgun);
-	//$email = new SmtpEmail($gmail);
+		'user'=>'jujiyangasli@gmail.com',
+		'password'=>'purefunk',
+	));
 	
 	$email->setFrom('dude@domain.com');
 	$email->addTo('man@domain.com');
@@ -44,6 +33,6 @@
 	$email->send();
 	if($email->failed) foreach($email->failed as $v) print $v.'<br />';
 
-	debug(file_get_contents('smtp'));
+	$email->debug();
 	
 ?>

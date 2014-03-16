@@ -9,14 +9,19 @@
 		private $sock;
 		private $lastResp = '';
 		
-		private $debugfile = 'smtp';
+		private $debugMssg = '';
 		
-		public $debug = false;
+		public function debug($return = false){
+			if($return) return implode('<br />',$this->debugMssg) . '<br />';
+			
+			
+			print '<pre>';
+			print implode('<br />',$this->debugMssg) . '<br />';
+			print '</pre>';
+		}
 		
 		private function debMssg($str){
-			if(!$this->debug) return;
-			if(is_writable(__DIR__))
-			file_put_contents($this->debugfile,$str."\n",FILE_APPEND);
+			$this->debugMssg[] = htmlentities($str);
 		}
 		
 		public function __construct($host,$port,$user,$pass,$auth){
@@ -25,8 +30,7 @@
 			$this->user = $user;
 			$this->pass = $pass;
 			$this->auth = $auth;
-			if(is_writable(__DIR__))
-			file_put_contents($this->debugfile,'');
+			$this->debugMssg = array();
 		}
 		
 		public function connect(){
@@ -236,7 +240,10 @@
 		
 		public function setConnection($arr){
 			$this->smtp = new Smtp($arr['host'],$arr['port'],$arr['user'],$arr['password'],$arr['auth']);
-			$this->smtp->debug = true;
+		}
+		
+		public function debug($bool=false){
+			$this->smtp->debug($bool);
 		}
 		
 		private function connect(){
