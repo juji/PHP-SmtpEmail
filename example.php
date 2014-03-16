@@ -1,13 +1,5 @@
 <?php
 	
-	function debug($str){
-		print '<pre>'. htmlentities($str).'</pre>';
-	}
-	
-	function pp($var){
-		debug(print_r($var,true));
-	}
-	
 	require_once 'SmtpEmail.php';
 	
 	$email = new SmtpEmail(array(
