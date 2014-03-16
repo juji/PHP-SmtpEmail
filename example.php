@@ -14,8 +14,8 @@
 		'host'=>'smtp.gmail.com',
 		'port'=>'587',
 		'auth'=>'tls',
-		'user'=>'jujiyangasli@gmail.com',
-		'password'=>'purefunk',
+		'user'=>'someone@gmail.com',
+		'password'=>'thepassword',
 	));
 	
 	$email->setFrom('dude@domain.com');
