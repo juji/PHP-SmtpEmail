@@ -22,9 +22,11 @@
 	// debug..
 	// die($email->generate());
 	
-	$email->send();
+	if(!$email->send()) die($email->debug());
 	if($email->failed) foreach($email->failed as $v) print $v.'<br />';
-
-	$email->debug();
+	
+	
+	//reset all email fields (not smtp fields)
+	$email->reset();
 	
 ?>

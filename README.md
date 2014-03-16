@@ -22,15 +22,18 @@ $email->addTo('man@domain.com');
 $email->addCc('Some Guy <guy@yahoo.com>');
 $email->addBcc('Some Dude <dude@mail.com>');
 $email->setSubject('Example Subject');
-$email->setHtml('Example <b>Content</b>');    // utf-8
-$email->setText('Example Content');    // utf-8
+$email->setHtml('Example <b>Content</b>');
+$email->setText('Example Content');
 $email->addAttachment('apache.gif','image/gif');
 
-$email->send();
-if($email->failed) foreach($email->failed as $v) print 'failed: '. $v.'<br />';
+// debug..
+// die($email->generate());
 
-$email->debug();    // print debug message
+if(!$email->send()) die($email->debug());
+if($email->failed) foreach($email->failed as $v) print $v.'<br />';
 
-$email->reset();    // reset all email fields (not the smtp fields)
+
+//reset all email fields (not smtp fields)
+$email->reset();
 
 ```
