@@ -30,7 +30,7 @@ $email->addAttachment('apache.gif','image/gif');
 // die($email->generate());
 
 if(!$email->send()) die($email->debug());
-if($email->failed) foreach($email->failed as $v) print $v.'<br />';
+if($email->failures) foreach($email->failures as $v) 'failed: '.print $v.'<br />';
 
 
 //reset all email fields (not smtp fields)

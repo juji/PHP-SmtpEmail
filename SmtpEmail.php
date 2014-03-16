@@ -235,7 +235,7 @@
 	class SmtpEmail extends Email{
 		
 		private $smtp;
-		public $failed;
+		public $failures;
 		public function __construct($r){$this->setConnection($r);}
 		
 		public function setConnection($arr){
@@ -255,7 +255,7 @@
 		public function send(){
 			
 			//initialize
-			$this->failed = false;
+			$this->failures = false;
 			$rcptFail = array();
 			$from = '<'.preg_replace('/>$/','',preg_replace('/^.*?</','',$this->from)).'>';
 			
@@ -284,7 +284,7 @@
 				if($r != '250' && $r != '251') $rcptFail[] = $v;
 			}
 			
-			$this->failed = sizeof($rcptFail) ? $rcptFail : false;
+			$this->failures = sizeof($rcptFail) ? $rcptFail : false;
 			
 			//send email
 			if(	$this->smtp->talk('DATA') != '354' ) return false;
