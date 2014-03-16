@@ -19,11 +19,7 @@
 	$email->setText('Example Content');
 	$email->addAttachment('apache.gif','image/gif');
 	
-<<<<<<< HEAD
 	// debug..
-=======
-	// for debugging
->>>>>>> f82c0d0830e8f4a90a5a8055a01659786f5f4ebd
 	// die($email->generate());
 	
 	$email->send();
