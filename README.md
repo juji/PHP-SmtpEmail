@@ -12,7 +12,7 @@ require_once 'SmtpEmail.php';
 $email = new SmtpEmail(array(
     'host'=>'smtp.mailgun.org',
 	'port'=>'587',
-	'auth'=>'tls',
+	'auth'=>'tls',  // 'tls' | 'ssl' | false
 	'user'=>'someone@domain.com',
 	'password'=>'32874956',
 ));
