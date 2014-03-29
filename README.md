@@ -1,4 +1,4 @@
-php-SmtpEmail
+PHP-SmtpEmail
 =========
 
 <br />
