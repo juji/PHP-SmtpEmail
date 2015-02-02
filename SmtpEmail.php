@@ -109,14 +109,14 @@
 	class Email{
 		
 		protected $from='';
-		protected $to='';
-		protected $cc='';
-		protected $bcc='';
+		protected $to;
+		protected $cc;
+		protected $bcc;
 		protected $html='';
 		protected $text='';
-		protected $attachments='';
+		protected $attachments;
 		protected $type='';
-		protected $headers='';
+		protected $headers;
 		protected $subject='';
 		
 		public function __construct(){$this->reset();}
@@ -236,7 +236,10 @@
 		
 		private $smtp;
 		public $failures;
-		public function __construct($r){$this->setConnection($r);}
+		public function __construct($r){
+			parent::__construct();
+			$this->setConnection($r);
+		}
 		
 		public function setConnection($arr){
 			$this->smtp = new Smtp($arr['host'],$arr['port'],$arr['user'],$arr['password'],$arr['auth']);
@@ -288,7 +291,7 @@
 			
 			//send email
 			if(	$this->smtp->talk('DATA') != '354' ) return false;
-			if($this->smtp->send($this->generate()) == '250') return false;
+			if($this->smtp->send($this->generate()) != '250') return false;
 			
 			//close
 			$this->smtp->close();
